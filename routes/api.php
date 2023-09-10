@@ -28,4 +28,7 @@ Route::get('/items', [ItemController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index'] );
 Route::get('/category/{id}', [CategoryController::class, 'category']);
 
+// Get category with subcategories
+Route::get('/categorywithsub/{id}', [CategoryController::class, "categorywithsub"]);
+
 Route::get('/images/{filename}', [ImageController::class, 'getImage'] );

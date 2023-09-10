@@ -16,7 +16,9 @@ class CategoryController extends Controller
 
 public function category($id)
 {
-    $category = Category::with('subcategories')->find($id);
+
+        $category = Category::find($id);
+
 
     if (!$category) {
         return response()->json(['error' => 'Category not found'], 404);
@@ -25,5 +27,13 @@ public function category($id)
     return response()->json($category);
 }
 
+    public function categoryWithSub($id) {
+         $category = Category::with('subcategories')->find($id);
 
+    if (!$category) {
+        return response()->json(['error' => 'Category not found'], 404);
+    }
+
+    return response()->json($category);
+    }
 }
