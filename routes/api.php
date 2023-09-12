@@ -24,11 +24,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // get all items
 Route::get('/items', [ItemController::class, 'index']);
-
+// Get categories
 Route::get('/categories', [CategoryController::class, 'index'] );
+// Get category with id
 Route::get('/category/{id}', [CategoryController::class, 'category']);
-
 // Get category with subcategories
 Route::get('/categorywithsub/{id}', [CategoryController::class, "categorywithsub"]);
+
+// Get subcategory
+Route::get('/subcategory/{id}', [CategoryController::class, 'getsubcategory']);
+
+// Get subcategory with subsubcategory
+Route::get('/subcategorywithsub/{id}', [CategoryController::class, "subcategorywithsub"]);
 
 Route::get('/images/{filename}', [ImageController::class, 'getImage'] );
