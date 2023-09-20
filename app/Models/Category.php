@@ -9,6 +9,11 @@ class Category extends Model
 {
     use HasFactory;
 
+    public function items()
+    {
+        return $this->hasMany(Item::class, 'category_id');
+    }
+
       public function subcategories()
     {
         return $this->hasMany(Subcategory::class);

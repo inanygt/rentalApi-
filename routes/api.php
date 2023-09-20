@@ -44,7 +44,7 @@ Route::get('/images/{filename}', [ImageController::class, 'getImage'] );
 // Get items
 Route::get('items/cat/{id}', [ItemController::class, "itemsWithCat"]);
 Route::get('items/subcat/{id}', [ItemController::class, "itemsWithSubCat"]);
-Route::get('items/subsubcat{id}', [ItemController::class, "itemsWithSubSubCat"]);
+Route::get('items/subsubcat/{id}', [ItemController::class, "itemsWithSubSubCat"]);
 
 // Tut Rest Api
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function() {
