@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Subsubcategory extends Model
 {
-    protected $table = 'subsubcategory';
+    protected $table = 'subsubcategories';
     use HasFactory;
 
     public function subcategory()

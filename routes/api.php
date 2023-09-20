@@ -1,11 +1,13 @@
 <?php
 
+use App\Http\Controllers\Api\V1\CustomerController;
+use App\Http\Controllers\Api\V1\InvoiceController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\http\Controllers\ItemController;
 use App\http\Controllers\CategoryController;
 use App\http\Controllers\ImageController;
-
+use App\Models\Customer;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +26,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 // get all items
 Route::get('/items', [ItemController::class, 'index']);
-// Get categories
+// Get all categories
 Route::get('/categories', [CategoryController::class, 'index'] );
 // Get category with id
 Route::get('/category/{id}', [CategoryController::class, 'category']);
@@ -38,3 +40,15 @@ Route::get('/subcategory/{id}', [CategoryController::class, 'getsubcategory']);
 Route::get('/subcategorywithsub/{id}', [CategoryController::class, "subcategorywithsub"]);
 
 Route::get('/images/{filename}', [ImageController::class, 'getImage'] );
+
+// Get items
+Route::get('items/cat/{id}', [ItemController::class, "itemsWithCat"]);
+Route::get('items/subcat/{id}', [ItemController::class, "itemsWithSubCat"]);
+Route::get('items/subsubcat{id}', [ItemController::class, "itemsWithSubSubCat"]);
+
+// Tut Rest Api
+Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function() {
+    Route::apiResource('customers', CustomerController::class);
+    Route::apiResource('invoices', InvoiceController::class);
+
+});
