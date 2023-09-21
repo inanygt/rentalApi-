@@ -43,4 +43,18 @@ class ItemController extends Controller
         $items = $subsubcategory->items;
         return response()->json($items);
     }
+
+    public function getUserId($itemId)
+    {
+        $item = Item::find($itemId);
+        if (!$item) {
+        return response()->json(['error' => 'Item not found'], 404);
+    }
+
+        $user = $item->user;
+        if (!$user) {
+        return response()->json(['error' => 'User not found for this item'], 404);
+    }
+    return response()->json($user);
+    }
 }

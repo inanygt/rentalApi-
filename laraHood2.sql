@@ -4,7 +4,7 @@
 -- https://tableplus.com/
 --
 -- Database: laraHood2
--- Generation Time: 2023-09-20 10:11:35.3700
+-- Generation Time: 2023-09-21 11:26:16.2850
 -- -------------------------------------------------------------
 
 
@@ -74,6 +74,7 @@ CREATE TABLE `items` (
   `subcategory_id` bigint unsigned NOT NULL,
   `user_id` bigint unsigned NOT NULL,
   `image` varchar(255) NOT NULL,
+  `subsubcategory_id` bigint unsigned DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -82,7 +83,7 @@ CREATE TABLE `migrations` (
   `migration` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 CREATE TABLE `password_reset_tokens` (
   `email` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -136,7 +137,7 @@ CREATE TABLE `users` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `users_email_unique` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=26 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `categories` (`id`, `name`, `image`) VALUES
 (1, 'Beeld & Geluid', 'https://media.s-bol.com/ng19kBlA54N7/1111x1200.jpg'),
@@ -152,32 +153,32 @@ INSERT INTO `categories` (`id`, `name`, `image`) VALUES
 (11, 'Computers, Telefoons & Toebehoren', 'https://www.apple.com/newsroom/images/product/iphone/standard/Apple_iphone_11-rosette-family-lineup-091019_big.jpg.large_2x.jpg'),
 (12, 'Party, Event & Tuinfeest', 'https://www.rachelriley.co.uk/cdn/shop/products/HBMULTIDOT_1800x1800.jpg?v=1589289883');
 
-INSERT INTO `items` (`id`, `title`, `city`, `region`, `price_per_day`, `price_per_extra_day`, `category_id`, `subcategory_id`, `user_id`, `image`) VALUES
-(1, 'Beatae asperiores repellendus eveniet.', 'South Furman', 'California', 65.36, 46.78, 7, 9, 5, 'Pariatur veritatis officiis et asperiores aut reiciendis.'),
-(2, 'Assumenda reiciendis dolores quo sunt eos.', 'Purdychester', 'Delaware', 75.61, 89.13, 7, 4, 7, 'Provident commodi et voluptas et delectus sint.'),
-(3, 'Cum quasi ab reprehenderit reprehenderit odit.', 'North Therese', 'Oklahoma', 178.39, 92.13, 9, 10, 7, 'Ex ut et sint.'),
-(4, 'Quam nobis reiciendis dicta.', 'Baumbachfort', 'Colorado', 151.29, 37.47, 8, 7, 8, 'Enim magnam quisquam autem corporis unde.'),
-(5, 'Sit vel sunt non sed voluptas ratione.', 'Lake Hester', 'Wisconsin', 129.21, 38.96, 4, 1, 4, 'Hic sint quod tempora ea odit minima similique.'),
-(6, 'Porro sint voluptatem magnam veniam omnis nulla suscipit corporis.', 'Port Bustermouth', 'Oklahoma', 159.59, 49.89, 8, 8, 2, 'Perspiciatis doloremque ut aperiam deserunt pariatur.'),
-(7, 'Culpa nisi pariatur et.', 'North Lou', 'Maryland', 185.99, 29.14, 7, 8, 6, 'Consequatur magnam veniam aut quaerat.'),
-(8, 'A iste quo vel consequatur temporibus odio officiis.', 'West Kellimouth', 'Maine', 170.12, 58.78, 4, 7, 1, 'Ullam pariatur mollitia laudantium maiores.'),
-(9, 'Praesentium nisi voluptatibus aspernatur vel ut aut.', 'New Melvinchester', 'Virginia', 121.60, 85.23, 5, 4, 1, 'Officiis perferendis quod placeat dolores exercitationem.'),
-(10, 'Aut et laborum reprehenderit soluta inventore.', 'Orvilleview', 'Connecticut', 148.78, 43.29, 3, 4, 5, 'Placeat aut dolore nihil quisquam voluptatibus ipsum.'),
-(11, 'Cum alias dolorem et voluptas alias vero sed.', 'Lake Helenamouth', 'California', 114.01, 25.47, 6, 2, 8, 'Rerum amet exercitationem sit voluptas qui.'),
-(12, 'Voluptatum impedit maiores rerum quibusdam.', 'North Alexandreaton', 'Washington', 168.57, 84.41, 9, 3, 1, 'Fuga dolor accusantium qui.'),
-(13, 'Alias id tenetur ducimus est vitae laborum.', 'New Carleyhaven', 'Michigan', 100.83, 94.30, 7, 1, 2, 'Porro expedita numquam veritatis mollitia accusantium placeat.'),
-(14, 'Et quia dolorem delectus.', 'Kirlinfort', 'Nebraska', 111.37, 38.12, 2, 10, 4, 'Quo eos architecto odit voluptas.'),
-(15, 'Animi iusto veniam veritatis minima repudiandae.', 'Blockfort', 'Washington', 191.73, 27.12, 3, 2, 10, 'Quisquam doloribus ipsa sunt distinctio voluptas.'),
-(16, 'Fugit consequatur sunt aut illum ad.', 'Trompside', 'Massachusetts', 143.48, 53.63, 5, 9, 7, 'Voluptas quia alias aut aut delectus deleniti quo.'),
-(17, 'Quae unde doloremque sunt consequatur.', 'Hammesburgh', 'Virginia', 52.97, 72.79, 1, 10, 9, 'Et harum similique vel itaque delectus.'),
-(18, 'Voluptas est veniam aspernatur eum.', 'Lake Alexandrine', 'North Carolina', 69.52, 76.35, 2, 9, 1, 'Vitae est cum similique et velit.'),
-(19, 'Necessitatibus minima quidem ex similique eum sint quam neque.', 'Port Heaven', 'North Dakota', 54.40, 72.61, 5, 6, 5, 'Est at dignissimos voluptate tempore et.'),
-(20, 'Inventore voluptatem voluptas qui inventore velit facere dolorem.', 'Alfredville', 'Kansas', 163.11, 40.82, 3, 7, 5, 'Voluptatem sapiente voluptas eum amet est nam.'),
-(21, 'Dolores sed sed qui.', 'New Eunice', 'Kentucky', 154.63, 65.74, 4, 5, 4, 'Et ut voluptatem sed nostrum maiores accusamus vero.'),
-(22, 'Cumque beatae eum nobis impedit alias nemo ut.', 'Andersonchester', 'Connecticut', 107.95, 31.47, 8, 4, 8, 'Omnis sapiente asperiores cumque cumque hic quia.'),
-(23, 'Sapiente eligendi unde temporibus labore ipsum.', 'Cletahaven', 'Florida', 167.44, 58.47, 5, 8, 9, 'Qui perferendis mollitia tenetur facilis quidem vel corrupti.'),
-(24, 'Iste sequi numquam distinctio.', 'Martinetown', 'Massachusetts', 81.20, 74.14, 1, 1, 4, 'Laboriosam omnis repudiandae voluptatem est quisquam pariatur sed.'),
-(25, 'Enim nam sunt mollitia doloribus adipisci.', 'Hodkiewiczport', 'Massachusetts', 196.63, 28.70, 1, 5, 9, 'Aut accusamus sit repudiandae impedit qui est.');
+INSERT INTO `items` (`id`, `title`, `city`, `region`, `price_per_day`, `price_per_extra_day`, `category_id`, `subcategory_id`, `user_id`, `image`, `subsubcategory_id`) VALUES
+(1, 'Beatae asperiores repellendus eveniet.', 'South Furman', 'California', 65.36, 46.78, 7, 9, 5, 'Pariatur veritatis officiis et asperiores aut reiciendis.', 1),
+(2, 'Assumenda reiciendis dolores quo sunt eos.', 'Purdychester', 'Delaware', 75.61, 89.13, 7, 4, 7, 'Provident commodi et voluptas et delectus sint.', 2),
+(3, 'Cum quasi ab reprehenderit reprehenderit odit.', 'North Therese', 'Oklahoma', 178.39, 92.13, 9, 10, 7, 'Ex ut et sint.', 3),
+(4, 'Quam nobis reiciendis dicta.', 'Baumbachfort', 'Colorado', 151.29, 37.47, 8, 7, 8, 'Enim magnam quisquam autem corporis unde.', 1),
+(5, 'Sit vel sunt non sed voluptas ratione.', 'Lake Hester', 'Wisconsin', 129.21, 38.96, 4, 1, 4, 'Hic sint quod tempora ea odit minima similique.', 2),
+(6, 'Porro sint voluptatem magnam veniam omnis nulla suscipit corporis.', 'Port Bustermouth', 'Oklahoma', 159.59, 49.89, 8, 8, 2, 'Perspiciatis doloremque ut aperiam deserunt pariatur.', 4),
+(7, 'Culpa nisi pariatur et.', 'North Lou', 'Maryland', 185.99, 29.14, 7, 8, 6, 'Consequatur magnam veniam aut quaerat.', 2),
+(8, 'A iste quo vel consequatur temporibus odio officiis.', 'West Kellimouth', 'Maine', 170.12, 58.78, 4, 7, 1, 'Ullam pariatur mollitia laudantium maiores.', 3),
+(9, 'Praesentium nisi voluptatibus aspernatur vel ut aut.', 'New Melvinchester', 'Virginia', 121.60, 85.23, 5, 4, 1, 'Officiis perferendis quod placeat dolores exercitationem.', 1),
+(10, 'Aut et laborum reprehenderit soluta inventore.', 'Orvilleview', 'Connecticut', 148.78, 43.29, 3, 4, 5, 'Placeat aut dolore nihil quisquam voluptatibus ipsum.', 2),
+(11, 'Cum alias dolorem et voluptas alias vero sed.', 'Lake Helenamouth', 'California', 114.01, 25.47, 6, 2, 8, 'Rerum amet exercitationem sit voluptas qui.', 5),
+(12, 'Voluptatum impedit maiores rerum quibusdam.', 'North Alexandreaton', 'Washington', 168.57, 84.41, 9, 3, 1, 'Fuga dolor accusantium qui.', 6),
+(13, 'Alias id tenetur ducimus est vitae laborum.', 'New Carleyhaven', 'Michigan', 100.83, 94.30, 7, 1, 2, 'Porro expedita numquam veritatis mollitia accusantium placeat.', 1),
+(14, 'Et quia dolorem delectus.', 'Kirlinfort', 'Nebraska', 111.37, 38.12, 2, 10, 4, 'Quo eos architecto odit voluptas.', 3),
+(15, 'Animi iusto veniam veritatis minima repudiandae.', 'Blockfort', 'Washington', 191.73, 27.12, 3, 2, 10, 'Quisquam doloribus ipsa sunt distinctio voluptas.', 2),
+(16, 'Fugit consequatur sunt aut illum ad.', 'Trompside', 'Massachusetts', 143.48, 53.63, 5, 9, 7, 'Voluptas quia alias aut aut delectus deleniti quo.', 6),
+(17, 'Quae unde doloremque sunt consequatur.', 'Hammesburgh', 'Virginia', 52.97, 72.79, 1, 10, 9, 'Et harum similique vel itaque delectus.', 4),
+(18, 'Voluptas est veniam aspernatur eum.', 'Lake Alexandrine', 'North Carolina', 69.52, 76.35, 2, 9, 1, 'Vitae est cum similique et velit.', 3),
+(19, 'Necessitatibus minima quidem ex similique eum sint quam neque.', 'Port Heaven', 'North Dakota', 54.40, 72.61, 5, 6, 5, 'Est at dignissimos voluptate tempore et.', 2),
+(20, 'Inventore voluptatem voluptas qui inventore velit facere dolorem.', 'Alfredville', 'Kansas', 163.11, 40.82, 3, 7, 5, 'Voluptatem sapiente voluptas eum amet est nam.', 4),
+(21, 'Dolores sed sed qui.', 'New Eunice', 'Kentucky', 154.63, 65.74, 4, 5, 4, 'Et ut voluptatem sed nostrum maiores accusamus vero.', 1),
+(22, 'Cumque beatae eum nobis impedit alias nemo ut.', 'Andersonchester', 'Connecticut', 107.95, 31.47, 8, 4, 8, 'Omnis sapiente asperiores cumque cumque hic quia.', 2),
+(23, 'Sapiente eligendi unde temporibus labore ipsum.', 'Cletahaven', 'Florida', 167.44, 58.47, 5, 8, 9, 'Qui perferendis mollitia tenetur facilis quidem vel corrupti.', 2),
+(24, 'Iste sequi numquam distinctio.', 'Martinetown', 'Massachusetts', 81.20, 74.14, 1, 1, 4, 'Laboriosam omnis repudiandae voluptatem est quisquam pariatur sed.', 3),
+(25, 'Enim nam sunt mollitia doloribus adipisci.', 'Hodkiewiczport', 'Massachusetts', 196.63, 28.70, 1, 5, 9, 'Aut accusamus sit repudiandae impedit qui est.', 4);
 
 INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (1, '2014_10_12_000000_create_users_table', 1),
@@ -186,7 +187,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (4, '2019_12_14_000001_create_personal_access_tokens_table', 1),
 (5, '2023_09_12_060207_create_customers_table', 2),
 (6, '2023_09_12_060234_create_invoices_table', 2),
-(9, '2023_09_19_135210_add_item_column_to_items_table', 3);
+(9, '2023_09_19_135210_add_item_column_to_items_table', 3),
+(10, '2023_09_20_081251_add_column_to_items_table', 4);
 
 INSERT INTO `subcategories` (`id`, `name`, `category_id`, `created_at`, `updated_at`, `image`) VALUES
 (1, 'Fotografie', 1, NULL, NULL, 'https://www.kamera-express.nl/media/b11f7b40-03ae-4c42-9b89-e18d44229a2f/12309814_5.jpg'),
@@ -222,6 +224,33 @@ INSERT INTO `subsubcategories` (`id`, `name`, `image`, `subcategory_id`) VALUES
 (6, 'Polaroidcamera', 'https://www.kamera-express.nl/media/31541c58-0cce-437d-a8d0-900791b3ab48/Polaroid-NowPlus-Black_1.jpg', 1),
 (7, 'Compactcamera', 'https://cdn.webshopapp.com/shops/318496/files/414899825/1000x1000x2/canon-eos-r5-body-nieuw.jpg', 1),
 (8, '360 graden camera', 'https://data.kommago.nl/img/products/large/78731_Ubiquiti-UniFi-AI-360-1.webp', 1);
+
+INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+(1, 'Estevan O\'Hara', 'lavada52@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'jNPk2nTf2n', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(2, 'Dane Boehm', 'smarvin@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'SLIBAtG5ZN', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(3, 'Maxie Spinka', 'crona.kiana@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'VoDVdf3E7Y', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(4, 'Jaquelin Daugherty', 'oberbrunner.godfrey@example.com', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'YvS9X4cfAV', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(5, 'Jeanette Rodriguez', 'virginia48@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'E0vndb4fQE', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(6, 'Lon Schimmel', 'jeremie99@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'sQOix8R2mx', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(7, 'Mr. Cade Haley', 'uriah.kilback@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'Xxwn2DiEKH', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(8, 'Miss Lavada Watsica V', 'lewis.mosciski@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '5lSmdjJRbY', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(9, 'Ms. Jazmyne Hamill', 'johnson.buster@example.com', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'On3jZz9K2a', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(10, 'Fermin Sporer', 'rahsaan76@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'je3v06ALdC', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(11, 'Caleigh Windler', 'reid81@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'UAMtRuQ41Q', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(12, 'Trinity Veum', 'jada.hills@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'kaVXloXlCP', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(13, 'Harley Goldner', 'brodriguez@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'E4wZ8lSUX2', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(14, 'Wilford Batz', 'lavinia23@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '4COPGd2c6l', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(15, 'Madisyn Nader II', 'xgutmann@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'fd86DHQIK7', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(16, 'Noemi Eichmann', 'gordon38@example.com', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'x2BoOlC8UJ', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(17, 'Aubree Feeney', 'forrest.kessler@example.com', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'DVGtbPnePp', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(18, 'Leila Smitham', 'spencer.cary@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'lXn2mWG2zB', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(19, 'Elsie Rolfson', 'janessa.cartwright@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'hjj86vkVjZ', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(20, 'Prof. Simone Pacocha', 'rahsaan.durgan@example.com', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'BskpmVnbzq', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(21, 'Missouri Jacobi PhD', 'chaz90@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'ANNBBgDHNr', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(22, 'Mrs. Jada Waelchi', 'julie34@example.com', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', '95TYTvJKKt', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(23, 'Kenyon Powlowski', 'mgottlieb@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'MmKAeAbXCx', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(24, 'Mrs. Nya Parker', 'trunolfsdottir@example.org', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'sSPx3pVK9s', '2023-09-21 09:25:15', '2023-09-21 09:25:15'),
+(25, 'Edmond Rau', 'heathcote.federico@example.net', '2023-09-21 09:25:15', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', 'pI5b4zUK6x', '2023-09-21 09:25:15', '2023-09-21 09:25:15');
 
 
 

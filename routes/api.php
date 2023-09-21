@@ -24,27 +24,23 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// get all items
-Route::get('/items', [ItemController::class, 'index']);
-// Get all categories
-Route::get('/categories', [CategoryController::class, 'index'] );
-// Get category with id
-Route::get('/category/{id}', [CategoryController::class, 'category']);
-// Get category with subcategories
-Route::get('/categorywithsub/{id}', [CategoryController::class, "categorywithsub"]);
-
-// Get subcategory
-Route::get('/subcategory/{id}', [CategoryController::class, 'getsubcategory']);
-
-// Get subcategory with subsubcategory
-Route::get('/subcategorywithsub/{id}', [CategoryController::class, "subcategorywithsub"]);
-
-Route::get('/images/{filename}', [ImageController::class, 'getImage'] );
 
 // Get items
+Route::get('/items', [ItemController::class, 'index']);
 Route::get('items/cat/{id}', [ItemController::class, "itemsWithCat"]);
 Route::get('items/subcat/{id}', [ItemController::class, "itemsWithSubCat"]);
 Route::get('items/subsubcat/{id}', [ItemController::class, "itemsWithSubSubCat"]);
+Route::get('item/{itemId}/user', [ItemController::class, "getUserId"]);
+
+// Categories
+Route::get('/categories', [CategoryController::class, 'index'] );
+Route::get('/category/{id}', [CategoryController::class, 'category']);
+Route::get('/categorywithsub/{id}', [CategoryController::class, "categorywithsub"]);
+Route::get('/subcategory/{id}', [CategoryController::class, 'getsubcategory']);
+Route::get('/subcategorywithsub/{id}', [CategoryController::class, "subcategorywithsub"]);
+Route::get('/images/{filename}', [ImageController::class, 'getImage'] );
+
+
 
 // Tut Rest Api
 Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function() {
