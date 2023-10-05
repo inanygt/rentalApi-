@@ -28,22 +28,18 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 // Get items
-Route::get('/items', [ItemController::class, 'index']);
 Route::get('items/cat/{id}', [ItemController::class, "itemsWithCat"]);
 Route::get('items/subcat/{id}', [ItemController::class, "itemsWithSubCat"]);
 Route::get('items/subsubcat/{id}', [ItemController::class, "itemsWithSubSubCat"]);
 Route::get('item/{itemId}/user', [ItemController::class, "getUserId"]);
 
 // Crud
+Route::get('/items', [ItemController::class, 'index']);
+Route::post('/items/{id}', [ItemController::class, "show"]);
+Route::post('/items', [ItemController::class, "store"]);
+Route::put('/items/{id}', [ItemController::class, 'update']);
+Route::delete('/items/{id}', [ItemController::class, 'delete']);
 
-Route::post('/items', function() {
-    return Item::create([
-        "title" => "mountainbike",
-        "city" => "genk",
-        "region" => "limburg"
-
-    ]);
-});
 
 // Categories
 Route::get('/categories', [CategoryController::class, 'index'] );
