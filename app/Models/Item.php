@@ -12,11 +12,12 @@ class Item extends Model
     public $timestamps = false;
 
 
-    // protected $fillable = [
-    //     'name',
-    //     'price',
-    //     'category'
-    // ];
+
+    protected $fillable = [
+        'title',
+        'city',
+        'region'
+    ];
 
       public function category()
     {

@@ -9,6 +9,8 @@ use App\http\Controllers\CategoryController;
 use App\http\Controllers\ImageController;
 use App\Models\Customer;
 
+use App\Models\Item;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,6 +33,17 @@ Route::get('items/cat/{id}', [ItemController::class, "itemsWithCat"]);
 Route::get('items/subcat/{id}', [ItemController::class, "itemsWithSubCat"]);
 Route::get('items/subsubcat/{id}', [ItemController::class, "itemsWithSubSubCat"]);
 Route::get('item/{itemId}/user', [ItemController::class, "getUserId"]);
+
+// Crud
+
+Route::post('/items', function() {
+    return Item::create([
+        "title" => "mountainbike",
+        "city" => "genk",
+        "region" => "limburg"
+
+    ]);
+});
 
 // Categories
 Route::get('/categories', [CategoryController::class, 'index'] );

@@ -17,15 +17,20 @@ class ItemFactory extends Factory
     public function definition(): array
     {
         return [
-        'title' => $this->faker->sentence,
+        'title' => $this->faker->words($this->faker->numberBetween(1, 2), true), // Generate 1 or 2 fake words
+        'description' => $this->faker->paragraph,
         'city' => $this->faker->city,
         'region' => $this->faker->state,
-        'price_per_day' => $this->faker->randomFloat(2, 50, 200),
-        'price_per_extra_day' => $this->faker->randomFloat(2, 20, 100),
-        'subcategory_id' => $this->faker->numberBetween(1, 10),
-        'category_id' => $this->faker->numberBetween(1, 10),
-        'user_id' => $this->faker->numberBetween(1,10),
+        'price_per_day' => $this->faker->numberBetween(5, 20), // Generate integer between 5 and 20
+        'price_per_extra_day' => $this->faker->numberBetween(5, 20), // Generate integer between 5 and 20
+        'subcategory_id' => $this->faker->numberBetween(1, 30),
+        'subsubcategory_id' => $this->faker->numberBetween(1, 30),
+        'category_id' => $this->faker->numberBetween(1, 12),
+        'user_id' => $this->faker->numberBetween(1,50),
         'image' => $this->faker->sentence,
+        'borrowable' => $this->faker->boolean,
+        'visible' => $this->faker->boolean,
+        'borrowed' => $this->faker->numberBetween(1,20)
         ];
     }
 }
