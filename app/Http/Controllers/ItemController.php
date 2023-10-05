@@ -42,7 +42,21 @@ class ItemController extends Controller
     }
 
     public function show($id) {
-        return Item::find($id);
+        $item = Item::findOrFail($id);
+        return response()->json($item);
+    }
+
+       public function update(Request $request, $id)
+    {
+        $alien = Item::findOrFail($id);
+        $alien->update($request->all());
+        return response()->json($alien, 200);
+    }
+
+    public function destroy($id)
+    {
+        Item::destroy($id);
+        return response()->json(null, 204);
     }
 
 

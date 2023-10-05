@@ -35,10 +35,10 @@ Route::get('item/{itemId}/user', [ItemController::class, "getUserId"]);
 
 // Crud
 Route::get('/items', [ItemController::class, 'index']);
-Route::post('/items/{id}', [ItemController::class, "show"]);
+Route::get('/items/{id}', [ItemController::class, "show"]);
 Route::post('/items', [ItemController::class, "store"]);
 Route::put('/items/{id}', [ItemController::class, 'update']);
-Route::delete('/items/{id}', [ItemController::class, 'delete']);
+Route::delete('/items/{id}', [ItemController::class, 'destroy']);
 
 
 // Categories
