@@ -22,20 +22,20 @@ class ItemController extends Controller
     public function store(Request $request) {
 
         $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-            'city' => 'required',
-            'region' => 'required',
-            'price_per_day' => 'required',
-            'price_per_extra_day' => 'required',
-            'category_id' => 'required',
-            'subcategory_id' => 'required',
-            'subsubcategory_id' => 'required',
-            'user_id' => 'required',
-            'image' => 'required',
-            'borrowed' => 'required',
-            'borrowable' => 'required',
-            'visible' => 'required',
+            // 'title' => 'required',
+            // 'description' => 'required',
+            // 'city' => 'required',
+            // 'region' => 'required',
+            // 'price_per_day' => 'required',
+            // 'price_per_extra_day' => 'required',
+            // 'category_id' => 'required',
+            // 'subcategory_id' => 'required',
+            // 'subsubcategory_id' => 'required',
+            // 'user_id' => 'required',
+            // 'image' => 'required',
+            // 'borrowed' => 'required',
+            // 'borrowable' => 'required',
+            // 'visible' => 'required',
         ]);
 
         return Item::create($request->all());

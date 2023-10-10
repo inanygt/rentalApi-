@@ -16,7 +16,18 @@ class Item extends Model
     protected $fillable = [
         'title',
         'city',
-        'region'
+        'region',
+        'description',
+        'price_per_day',
+        'price_per_extra_day',
+        'category_id',
+        'subcategory_id',
+        'subsubcategory_id',
+        'user_id',
+        'image',
+        'borrowed',
+        'borrowable',
+        'visible',
     ];
 
       public function category()
